@@ -1,0 +1,883 @@
+:root {
+  --scrolling: auto;
+  --hidecover: flex;
+  --hideinstructions: flex;
+  
+  --hideroomhistory: none;
+  --hidegamestats: none;
+  --disablescroll: hidden;
+  --hideendgame: none;
+  --hideprize: none;
+  --time: calc(15*60s);
+  --waterlevel: 0px;
+  --bottom: 0px;
+  --timer: rgba(36, 28, 28, 0.85);
+  --rightpanebg: rgba(50, 60, 90, 1);
+
+}
+
+body {
+  color: white;
+  margin: 0;
+  font-family: "Inria Sans", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  overflow-y: var(--disablescroll);
+  overflow-x: hidden;
+  background-image: url("assets/1.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+h3 {
+  text-align: center;
+}
+
+.logo_container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo_container p{
+  font-family: "Permanent Marker", cursive;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.logo_container p:hover{
+  color: rgb(189, 0, 0);
+}
+
+#welcomename{
+  color: rgb(176, 0, 0);
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Inria Sans", sans-serif;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  background: black;
+  background-size: 100vw 100vh;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 3;
+  display: var(--hidecover);
+}
+
+h1 {
+  font-family: "Permanent Marker", cursive;
+  font-size: 200px;
+  color: transparent;
+  background: rgb(176, 0, 0);
+  background: radial-gradient(
+    circle,
+    rgba(171, 0, 0, 1) 0%,
+    rgba(236, 0, 45, 1) 54%,
+    rgba(176, 0, 0, 1) 100%
+  );
+  width: 80%;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  line-height: 0.9;
+  margin: 0;
+}
+
+header p{
+  font-family: "Inria Sans", sans-serif;
+  font-size: 12px;
+  transform: scale(1, 0.9);
+  color: white;
+  padding-left: 40%;
+}
+
+
+/* NAVIGATION*/
+
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.menu button{
+  margin: 0 20px;
+}
+
+#name{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 40px;
+  font-family: "Inria Sans", sans-serif;
+  width: 250px;
+  border-radius: 15px;
+  padding-left: 15px;
+  outline: none;
+  border: solid 3px rgb(176, 0, 0);;
+  color: white;
+  background: transparent;
+  animation: lumen 1s infinite;
+}
+
+@keyframes lumen {
+  50%{box-shadow: 0px 0px 1px 1px rgb(255, 0, 0, 0.5);}
+}
+
+
+label{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 40px;
+  font-family: "Inria Sans", sans-serif;
+  width: 250px;
+  margin-top: 2em;
+  color: white;
+}
+
+select{
+  font-size: 20px;
+  height:48px;
+  min-width: 273px;
+  font-weight: 600;
+  font-family: "Inria Sans", sans-serif;
+  width: 250px;
+  border-radius: 15px;
+  padding-left: 15px;
+  outline: none;
+  border: solid 3px rgb(176, 0, 0);;
+  color: white;
+  background: transparent;
+  animation: lumen 1s infinite;
+  background-color: black;
+  outline:none;
+}
+
+#play{
+  outline:none;
+  padding: 10px 20px 12px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Inria Sans", sans-serif;
+  border-radius: 9px;
+  border: none;
+  margin-top: 3em;
+  background:rgba(50, 60, 90, 1);
+  color: white;
+  animation: lumen2 5s infinite;
+}
+
+@keyframes lumen2 {
+  0%{border: solid 2px rgb(146, 154, 180);}
+  100%{border: solid 2px transparent}
+}
+
+
+#begin, #howtoplay, #roomhistory, #gamestats, #quitgame, #retry{
+  outline:none;
+  padding: 10px 20px 12px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Inria Sans", sans-serif;
+  border-radius: 9px;
+  border: none;
+  background:rgba(50, 60, 90, 1);
+  color: white;
+  cursor: pointer;
+}
+
+#begin:hover, #howtoplay:hover, #roomhistory:hover, #gamestats:hover{
+  cursor: pointer;
+  background: rgb(202, 0, 0,0.5);
+  transition: 1s;
+}
+
+#begin{
+  animation: highlight 3s infinite;
+}
+
+#begin:hover{
+  animation-play-state: paused;
+  background:rgb(189, 0, 0);
+}
+
+@keyframes highlight {
+  0%{background:rgb(202, 0, 0,0.5);
+  }
+  50%{background:rgba(50, 60, 90, 1);
+  }
+  100%{background:rgb(202, 0, 0,0.5);
+  }
+}
+
+#retry{
+  background: rgb(47, 172, 255);
+  animation: highlight2 10s infinite;
+}
+
+@keyframes highlight2 {
+  0%{background:rgb(47, 172, 255);
+  }
+  50%{background:rgb(5, 52, 192);
+  }
+  100%{background:rgb(47, 172, 255);
+  }
+}
+
+#play:hover{
+  cursor: pointer;
+  background: rgb(202, 0, 0,0.5);
+  transition: 3s;
+}
+
+/* BEGIN */
+
+.timer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#m1, #m2, #s1, #s2{
+  background-color: var(--timer);
+  width: 20px;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin: 3px;
+  border: solid rgba(0, 0, 0, 0.281) 3px;
+}
+
+#separator{
+  padding-top: 5px;
+  margin: 0 10px;
+}
+
+/* YOU LOST */
+
+#endgame_container{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0, 0.5);
+  display: var(--hideendgame);
+  align-items: center;
+}
+#message{
+  font-size: 4rem;
+  line-height: 40px;
+  background:black;
+  width: 400px;
+  text-align: center;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+#message p{
+  margin:0;
+  padding: 50px 20px 30px;
+}
+
+#message button{
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+#message:hover #retry{
+  background:rgb(176, 0, 0);
+}
+
+
+/* Main headers*/
+
+.instructionsheader, .roomhistoryheader, .gamestatsheader {
+  font-size: 1.5em;
+  align-self: center;
+  color: red;
+  font-family: "Permanent Marker", cursive;
+}
+
+/* cross*/
+
+#line1 {
+  display: inline-block;
+  width: 40px;
+  transform: rotate(45deg);
+  border-bottom: solid 2px white;
+}
+
+#line2 {
+  display: inline-block;
+  width: 40px;
+  transform: rotate(-45deg);
+  border-bottom: solid 2px white;
+  position: relative;
+  left: -45px;
+}
+
+/* INSTRUCTIONS*/
+
+#red{
+  color: red;
+}
+
+#instructions_container {
+  display: var(--hideinstructions);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(59, 59, 59);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#instructions p {
+  text-indent: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top:0;
+  text-align: justify;
+}
+
+#instructions {
+  position: relative;
+  z-index: 1;
+  background-size: 100vw 100vh;
+  width: 50vw;
+  height: 60vh;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding-right: 50px;
+}
+
+#instructions::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+#instructions::-webkit-scrollbar-thumb {
+    background: red;
+    border: solid 1px rgb(189, 0, 0);
+    border-radius: 5px;
+}
+
+#closeinstructions {
+  width: 100%;
+  position: relative;
+  top: -80px;
+  left: 80%;
+  cursor: pointer;
+}
+
+#closeinstructions:hover span {
+  border-color: red;
+  transition: 0.5s;
+}
+
+#skip{
+  color: red;
+  font-family: "Inria Sans", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 50px;
+  padding-right: 20px;
+  cursor: pointer;
+  animation: pulsation 3s infinite;
+}
+
+#skip:hover {
+  animation: pulsation 0s infinite;
+  color: greenyellow;
+}
+
+@keyframes pulsation {
+  0%{color: white}
+  50%{color: red}
+  100%{color: white;}
+}
+
+/* ROOM HISTORY*/
+
+#roomhistory_container {
+  display: var(--hideroomhistory);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(59, 59, 59);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#roomhistory_container p{
+  width: 500px;
+  text-align: left;
+}
+
+#closeroomhistory {
+  width: 100%;
+  position: relative;
+  top: -80px;
+  left: 80%;
+  cursor: pointer;
+}
+
+#closeroomhistory:hover span {
+  border-color: red;
+  transition: 0.5s;
+}
+
+
+/* GAME STATS*/
+
+#gamestats_container {
+  display: var(--hidegamestats);
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  background: rgb(59, 59, 59);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 20vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#gamestats p {
+  text-indent: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top:0;
+  text-align: justify;
+}
+
+#stats {
+  position: relative;
+  z-index: 1;
+  background-size: 100vw 100vh;
+  width: 70vw;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+#stats td{
+  color: white;
+  font-weight: 400;
+  padding: 10px;
+  text-align: left;
+}
+
+#stats th{
+  padding: 5px 20px 0 20px;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  text-align: left;
+}
+
+#stats th, td{
+  border-left: solid 1px rgb(255, 255, 255, 0.5);
+}
+
+#statstimeperroom, #stats td:last-child{
+  border-right: solid 1px rgb(255, 255, 255, 0.5);
+}
+
+#stats tr{
+  border-top: solid 1px rgb(255, 255, 255, 0.5);
+}
+
+
+#statsname{
+  width:15vw;
+}
+
+#statsdate{
+  width:15vw;
+}
+
+#norecords{
+  text-shadow: 0px 0px 10px rgb(59, 59, 59);
+  position:relative;
+  top: 30%;
+  z-index: 5;
+}
+
+#stats::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+#stats::-webkit-scrollbar-thumb {
+    background: red;
+    border: solid 1px rgb(189, 0, 0);
+    border-radius: 5px;
+}
+
+#closegamestats {
+  width: 100%;
+  position: relative;
+  top: -80px;
+  left: 90%;
+  cursor: pointer;
+}
+
+#closegamestats:hover span {
+  border-color: red;
+  transition: 0.5s;
+}
+
+/* PRIZE */
+
+
+#prize_container {
+  display: var(--hideprize);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(59, 59, 59);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#youwon{
+  font-size: 20px;
+  width: 250px;
+  text-align: center;
+  margin: 30px;
+  text-shadow:1px 1px 20px rgb(19, 1, 1);
+}
+
+#life{
+  font-family: "Permanent Marker", cursive;
+  font-size:80px;
+  width: 250px;
+  color: rgb(176, 0, 0);
+  text-align: center;
+  margin: 0 0 40px 0;
+  line-height: 40px;
+  text-shadow:1px 3px 20px white;
+}
+
+#enjoy{
+  font-family: "Permanent Marker", cursive;
+  font-size:40px;
+  width: 250px;
+  color: rgb(176, 0, 0);
+  text-align: center;
+  margin: 10px;
+  text-shadow:1px 1px 20px rgb(19, 1, 1);
+}
+
+#prize{
+  filter: invert(1);
+}
+
+#line1 {
+  display: inline-block;
+  width: 40px;
+  transform: rotate(45deg);
+  border-bottom: solid 2px white;
+}
+
+#line2 {
+  display: inline-block;
+  width: 40px;
+  transform: rotate(-45deg);
+  border-bottom: solid 2px white;
+  position: relative;
+  left: -45px;
+}
+
+#closeprize {
+  width: 100%;
+  position: relative;
+  top: -80px;
+  left: 80%;
+  cursor: pointer;
+}
+
+#closeprize:hover span {
+  border-color: red;
+  transition: 0.5s;
+}
+
+
+/*WATER LEVEL*/
+
+#water {
+  background: rgba(60, 74, 112, 0.902);
+  background: radial-gradient(
+    circle,
+    rgba(50, 70, 110, 1) 0%,
+    rgba(60, 74, 112, 1) 53%,
+    rgba(50, 60, 90, 1) 100%
+  );
+  background-size: 100vw 100vh;
+  height: var(--waterlevel);
+  width: 100vw;
+  position: absolute;
+  bottom: var(--bottom);
+  overflow-y: hidden;
+  z-index: -1;
+}
+
+.bubble{
+  display: none;
+  height: 15px;
+  width: 15px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+}
+
+.controlpanel {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1080px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.leftpane{
+  background:rgb(41, 61, 99);
+  width:500px;
+  border: solid 15px rgb(39, 39, 39,0.5);
+  margin: 5px;
+  box-shadow: -10px 3px 100px 20px rgb(0, 0, 0);
+}
+
+.rightpane{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  background-color: var(--rightpanebg);
+  border: solid 15px rgb(39, 39, 39, 0.5);
+  margin: 5px;
+  box-shadow: 10px 3px 100px 20px rgb(0, 0, 0);
+}
+
+.display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 3rem;
+  font-weight: bold;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: rgb(22, 26, 34);
+
+}
+
+.displayheader{
+  background-color: rgb(22, 26, 34);
+  margin: 0;
+  padding: 20px;
+}
+
+.space, .filled {
+  height: 5rem;
+  width: 5rem;
+  align-self: center;
+  justify-self: center;
+  box-sizing: border-box;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 8px 24px;
+  text-align: center;
+  margin: 5px 10px 20px;
+}
+
+.space {
+  background: rgb(176, 0, 0);
+}
+
+.filled {
+  background: rgb(0, 187, 62);
+  animation: blink 0.5s;
+  animation-iteration-count: 3;
+  animation-play-state: paused;
+}
+
+@keyframes blink {
+  0%{}
+  50%{box-shadow: 0px 0px 5px 5px rgb(255, 0, 0);}
+  100%{}
+}
+
+
+
+.entry {
+  align-self:center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
+  margin: 0 auto 20px;
+  justify-content: space-around;
+}
+
+.entry p:hover {
+  position: relative;
+  top: 2px;
+  box-shadow: 0px 1px 5px 0px #ccc;
+}
+
+.button, .button:active,
+.reset,
+.enter {
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px 5px;
+  border: solid 1px;
+  border-radius: 10px;
+  text-align: center;
+  width: 5rem;
+  height: 5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: rgb(29, 42, 66);
+}
+
+@keyframes press {
+  0%{box-shadow: 0px 0px 0px 0px rgb(0, 57, 143);}
+  100%{box-shadow: 0px 1px 10px 10px rgb(0, 57, 143);}
+  
+}
+.subscript {
+  font-size: 0.6rem;
+  position: relative;
+  left: 0px;
+  top: -50px;
+}
+
+.hints{
+  padding-left: 20px;
+  overflow-y: auto;
+  height: 180px;
+  margin-right:30px;
+  margin-bottom: 10px;
+}
+
+.hintdetail{
+  padding-left: 30px;
+}
+
+.hints::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+.hints::-webkit-scrollbar-thumb {
+    background: red;
+    border: solid 1px rgb(189, 0, 0);
+    border-radius: 5px;
+}
+
+#pass {
+  display: none;
+}
+
+/* GAME SETTINGS */
+
+#time{
+  display:none;
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+  max-width: 1440px;
+  background-color: var(--tertiary-color);
+  margin: 10px auto 0px;
+  display:flex;
+  height:100px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fleft{
+  margin-left: 20px;
+}
+
+.year, .github{
+  padding-left:15px;
+}
+
+a.github{
+  color: white;
+  text-decoration: none;
+}
+
+a.github:hover{
+  color: #ff7070;
+  text-shadow: 0px 0px 10px rgb(255, 0, 0);
+  text-decoration: none;
+}
+
+.rsschool{
+  background-image: url("assets/svg/rss.svg");
+  background-size: 150px 70px;
+  width:150px;
+  height:70px;
+  margin-right: 20px;
+}
+
+.rsschool:hover{
+  filter: invert(26%) sepia(52%) saturate(9865%) hue-rotate(324deg) brightness(95%) contrast(111%);
+  cursor:pointer;
+  transition:0s;
+}

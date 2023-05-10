@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400&family=Permanent+Marker&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://img.icons8.com/external-soft-fill-juicy-fish/50/000000/external-lock-keys-and-locks-soft-fill-soft-fill-juicy-fish-4.png" />
+  <title>Outbreak</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Outbreak</h1>
+    <p>BY SERGHEI MUSAJI</p>
+
+    <label for="name">Enter your name:</label>
+    <input id="name" type="text" placeholder="------" autocomplete="off" />
+
+    <label for="difficulty">Select Difficulty:</label>
+    <select id="difficulty" name="difficulty">
+      <option value="easy">Easy</option>
+      <option value="moderate">Moderate</option>
+      <option value="hard">Hard</option>
+      <option value="nightmare">Nightmare</option>
+    </select>
+
+
+    <button id="play">Play</button>
+  </header>
+
+  <main>
+
+    <section class="popups">
+      <div class="logo_container">
+        <p id="gamename">
+          Outbreak
+        </p>
+        <span id="welcomename"></span>
+      </div>
+
+      <div class="menu">
+        <button id="begin">Begin</button>
+        <button id="quitgame">Quit game</button>
+        <button id="howtoplay">How to play?</button>
+        <button id="roomhistory">Room history</button>
+        <button id="gamestats">Game statistics</button>
+      </div>
+
+      <div id="endgame_container">
+        <div id="message">
+          <p>You lost!</p>
+          <button id="retry">Retry</button>
+        </div>
+      </div>
+
+      <div id="instructions_container">
+        <h2 class="instructionsheader">Instructions</h2>
+        <div id="closeinstructions">
+          <span id="line1"></span>
+          <span id="line2"></span>
+        </div>
+        <div id="instructions">
+          <p>
+            Imagine you were knocked out and kidnapped by a crazy mind-game-obsessed maniac.
+            Once you woke up, you realized that you are locked in a room with no windows in it.
+            There is a steel door that may be opened from the inside, but you need a secret password for that, which you
+            don't know.
+          <p>
+          <p>
+            There is a piece of paper lying next to you and that turns to be the instructions from the maniac, who if
+            offering
+            you to play a game for your life. The game is simple. <span id="red">You need to figure out the digital key
+              to open the
+              room.
+              This key is comprised of 5 unique digits 0-9. In other words, the digits will not repeat.</span></p>
+
+          <p>Once you start the game, <span id="red">you have only 12 attempts to guess the right password to open the
+              door</span>.
+            While you are trying to guess - the room is filling with water and you need to hurry to get out and survive.
+            You will see a timer showing how much time you have left to find the right combination. Once the timer hits
+            00:00 - you lose</p>
+
+          <p>The bad news is that you have 10*9*8*7*6 = 30,240 possible combinations. <span id="red">The good news is
+              that after each
+              attempt, you are offered some hints. Specifically, after each attempt you are being told how many digits
+              you
+              your guess were correct and
+              placed well as "X" and also the number
+              of those that were in the key, but are misplaced as "Y".</span> You will not know which part of the key
+            you got
+            right - just the number of "X" and "Y".
+            <span id="red">For instance, if the digital key is 51298 and your guess is 13259, then the hint you receive
+              is 1X and 3Y.</span>
+          </p>
+
+          <p>The maniac was kind enough to close this letter by wishing you best of luck and suggesting <span
+              id="red">there will be 10
+              doors like that on your way to exit.</span>
+            Each room will be more difficult to exit, but you will be always provided with a decent chance to
+            survise.
+            Obviously, the timer will always start over once you enter a new room.</p>
+
+          <p>Now, when you know what the game is about - put your mind to work and break free.
+            If you get till the end, you will see a prize.</p>
+        </div>
+        <span id="skip">Skip and Stop showing for this player</span>
+      </div>
+
+      <div id="roomhistory_container">
+        <h3 class="roomhistoryheader">Room History:</h3>
+        <div id="closeroomhistory">
+          <span id="line1"></span>
+          <span id="line2"></span>
+        </div>
+        <p id="r1">Your room history will be displayed here</p>
+        <p id="r2"></p>
+        <p id="r3"></p>
+        <p id="r4"></p>
+        <p id="r5"></p>
+        <p id="r6"></p>
+        <p id="r7"></p>
+        <p id="r8"></p>
+        <p id="r9"></p>
+        <p id="r10"></p>
+        <p id="r11"></p>
+        <p id="r12"></p>
+      </div>
+
+      <div id="gamestats_container">
+        <h3 class="gamestatsheader">Game Records:</h3>
+        <div id="closegamestats">
+          <span id="line1"></span>
+          <span id="line2"></span>
+        </div>
+        <p id="norecords">Your room game records will be displayed here</p>
+        <table>
+        <tbody id="stats">
+          <tr>
+            <th id="statsname">Name:</th>
+            <th id="statsdate">Date:</th>
+            <th id="statsroomscompleted">Rooms completed:</th>
+            <th id="statsattemptsperroom">Attempts per Room:</th>
+            <th id="statstimeperroom">Time per Room (sec)</th>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+      <div id="prize_container">
+
+        <div id="closeprize">
+          <span id="line1"></span>
+          <span id="line2"></span>
+        </div>
+
+        <img id="prize" alt="prize" src="https://img.icons8.com/dotty/80/000000/love-time.png" />
+        <p id="youwon">You have won the most precious of the possible fortunes -</p>
+        <p id="life">Life.</p>
+        <p id="enjoy">Enjoy the moment!</p>
+
+      </div>
+
+    </section>
+
+
+    <div id="water">
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+    </div>
+
+
+
+    <section class="gamewindow">
+      <div class="room">
+        <h3 id="roomnum">Room 1</h3>
+        <div class="timer">
+          <span id="m1">0</span>
+          <span id="m2">0</span>
+          <span id="separator">:</span>
+          <span id="s1">0</span>
+          <span id="s2">0</span>
+        </div>
+        <div class="controlpanel">
+          <div class="leftpane">
+            <h3 class="displayheader">Display:</h3>
+            <div class="display">
+              <p class="space" id="d1">#</p>
+              <p class="space" id="d2">#</p>
+              <p class="space" id="d3">#</p>
+              <p class="space" id="d4">#</p>
+              <p class="space" id="d5">#</p>
+            </div>
+
+            <h3 class="hintsheader">Hints:</h3>
+            <div class="hints">
+              <p id="h1">Try a number to see if it fits...</p>
+              <p id="h2"></p>
+              <p id="h3"></p>
+              <p id="h4"></p>
+              <p id="h5"></p>
+              <p id="h6"></p>
+              <p id="h7"></p>
+              <p id="h8"></p>
+              <p id="h9"></p>
+              <p id="h10"></p>
+              <p id="h11"></p>
+              <p id="h12"></p>
+            </div>
+          </div>
+          <div class="rightpane">
+            <h3 class="entryheader">Entry:</h3>
+            <div class="entry">
+              <p class="button" id="k1">1</p>
+              <p class="button" id="k2">2</p>
+              <p class="button" id="k3">3</p>
+              <p class="button" id="k4">4</p>
+              <p class="button" id="k5">5</p>
+              <p class="button" id="k6">6</p>
+              <p class="button" id="k7">7</p>
+              <p class="button" id="k8">8</p>
+              <p class="button" id="k9">9</p>
+              <p class="reset" id="reset">R
+                <span class="subscript">reset</span>
+              </p>
+              <p class="button" id="k0">0</p>
+              <p class="enter" id="enter">E
+                <span class="subscript">enter</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <span id="pass"></span>
+      <span id="time">1</span>
+    </section>
+
+  </main>
+  <footer>
+    <div class="fleft">
+      <span class="copyright">©</span>
+      <span class="year">2022</span>
+      <a class="github" href="https://github.com/seiumu/">Serghei Musaji</a>
+    </div>
+    <a href="https://rs.school/js-stage0/">
+      <div class="rsschool"></div>
+    </a>
+  </footer>
+  </div>
+</body>
+<script src="index.js"></script>
+
+</html>
